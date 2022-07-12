@@ -1,0 +1,38 @@
+<div class="conteuneurFormulaire">
+  <div class="title">
+    <h1>Nouveau centre</h1>
+    <div class="formButton" (click)="addCentre()">
+      <button type="submit"><span id="addPerson"></span> Ajouter</button>
+    </div>
+  </div>
+  <div class="formulaire">
+    <!-- <mat-card> -->
+    <div class="formGroupItem">
+      <div class="formItem">
+        <label for="nom">Nom centre</label>
+        <input
+          type="text"
+          id="nom"
+          name="nom"
+          [(ngModel)]="centre.nomCentre"
+          [disabled]="centre.idCentre !== -1"
+        />
+      </div>
+      <div class="formItem">
+        <label for="adresseCentre">Adresse centre</label>
+        <input
+          type="text"
+          id="adresseCentre"
+          name="adresseCentre"
+          [disabled]="centre.idCentre !== -1"
+          [(ngModel)]="centre.adresseCentre"
+        />
+      </div>
+    </div>
+
+    <!-- </mat-card> -->
+  </div>
+</div>
+
+<div class="map-container" #map></div>
+<pre id="coordinates" class="coordinates"></pre>

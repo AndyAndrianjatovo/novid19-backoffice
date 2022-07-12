@@ -1,0 +1,101 @@
+<div class="conteuneurFormulaire">
+  <div class="title">
+    <h1>Nouvelle personne</h1>
+  </div>
+  <div class="formulaire">
+    <!-- <mat-card> -->
+    <div class="formGroupItem">
+      <div class="formItem">
+        <label for="nom">Nom</label>
+        <input
+          type="text"
+          id="nom"
+          name="nom"
+          [(ngModel)]="personne.nom"
+          [disabled]="personne.idPersonne !== -1"
+        />
+      </div>
+      <div class="formItem">
+        <label for="prenom">Prenom</label>
+        <input
+          type="text"
+          id="prenom"
+          name="prenom"
+          [disabled]="personne.idPersonne !== -1"
+          [(ngModel)]="personne.prenom"
+        />
+      </div>
+    </div>
+    <div class="formItem">
+      <label for="mail">Adresse mail</label>
+      <input
+        type="text"
+        id="mail"
+        name="mail"
+        [(ngModel)]="personne.mail"
+        [disabled]="personne.idPersonne !== -1"
+      />
+    </div>
+    <div class="formItem">
+      <label for="adresse">Adresse</label>
+      <input
+        type="text"
+        id="adresse"
+        name="adresse"
+        [(ngModel)]="personne.adresse"
+        [disabled]="personne.idPersonne !== -1"
+      />
+    </div>
+    <!-- <div class="formGroupItem"> -->
+    <div class="formItem">
+      <label for="dateNaissance">Date de naissance:</label>
+      <input
+        type="date"
+        id="dateNaissance"
+        name="dateNaissance"
+        [(ngModel)]="personne.dateNaissance"
+        [ngModel]="personne.dateNaissance | date: 'yyyy-MM-dd'"
+        [disabled]="personne.idPersonne !== -1"
+      />
+    </div>
+    <div class="formItem">
+      <label for="sexe">Sexe</label>
+      <select
+        name="sexe"
+        id="sexe"
+        [(ngModel)]="personne.sexe"
+        [disabled]="personne.idPersonne !== -1"
+      >
+        <option value="1">Homme</option>
+        <option value="2">Femme</option>
+      </select>
+      <!-- <input
+            type="text"
+            id="sexe"
+            name="sexe"
+            [(ngModel)]="personne.sexe"
+          /> -->
+    </div>
+    <!-- </div> -->
+    <div class="formItem">
+      <label for="cin">CIN</label>
+      <input
+        type="text"
+        id="cin"
+        name="cin"
+        placeholder="___ ___ ___ ___"
+        data-slots="_"
+        data-accept="\d"
+        size="12"
+        [(ngModel)]="personne.cin"
+        [disabled]="personne.idPersonne !== -1"
+      />
+    </div>
+
+    <div class="formButton" (click)="addPerson()">
+      <!-- <input type="submit" value="" /> -->
+      <button type="submit"><span id="addPerson"></span> Ajouter</button>
+    </div>
+    <!-- </mat-card> -->
+  </div>
+</div>

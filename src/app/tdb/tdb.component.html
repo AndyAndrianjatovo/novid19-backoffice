@@ -1,0 +1,52 @@
+<div class="title">
+  <h1>Tableau des résultats No-Vid</h1>
+</div>
+<div class="recap">
+  <div class="recap-item">
+    <div class="titre-recap">Test effectué</div>
+    <div class="stat-recap">{{ tests.length }}</div>
+    <div class="txt-recap">
+      Voici le nombre total des test RT-PCR et antigénique effectué depuis le
+      début de l'épidémie.
+    </div>
+  </div>
+  <div class="recap-item borderd-item">
+    <div class="titre-recap">Cas positif</div>
+    <div class="stat-recap">{{ testsPositif.length }}</div>
+    <div class="txt-recap">
+      On peut voir ici tout les cas positifs sur les tests réaliser.
+    </div>
+  </div>
+  <div class="recap-item">
+    <div class="titre-recap">Nombres de centre</div>
+    <div class="stat-recap">{{ centres.length }}</div>
+    <div class="txt-recap">
+      Voici le nombre total des centres où on peut effectuer les tests et les
+      vaccins.
+    </div>
+  </div>
+</div>
+<div class="graphe" *ngIf="this.saleData.length == 4">
+  <div>
+    <!-- <h1>Vertical</h1> -->
+    <ngx-charts-bar-vertical
+      [view]="[1250, 400]"
+      [results]="saleData"
+      [xAxisLabel]="''"
+      [legendTitle]="'Statistiques COVID-19 Madagascar'"
+      [yAxisLabel]="'Nombre'"
+      [legend]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      [gradient]="false"
+    >
+    </ngx-charts-bar-vertical>
+  </div>
+
+  <!-- <div>
+    <h1>Pie</h1>
+    <ngx-charts-pie-grid [results]="saleData"> </ngx-charts-pie-grid>
+  </div> -->
+</div>

@@ -1,0 +1,38 @@
+<div class="conteuneurFormulaire">
+  <div class="title">
+    <h1>Nouvelle lieu</h1>
+    <div class="formButton">
+      <button type="submit"><span id="addPerson"></span> Ajouter</button>
+    </div>
+  </div>
+  <div class="formulaire">
+    <!-- <mat-card> -->
+    <div class="formGroupItem">
+      <div class="formItem">
+        <label for="nom">Nom lieu</label>
+        <input
+          type="text"
+          id="nom"
+          name="nom"
+          [(ngModel)]="lieu.nomLieu"
+          [disabled]="lieu.idLieu !== -1"
+        />
+      </div>
+      <div class="formItem">
+        <label for="adresseLieu">Adresse lieu</label>
+        <input
+          type="text"
+          id="adresseLieu"
+          name="adresseLieu"
+          [disabled]="lieu.idLieu !== -1"
+          [(ngModel)]="lieu.adresseLieu"
+        />
+      </div>
+    </div>
+
+    <!-- </mat-card> -->
+  </div>
+</div>
+
+<div class="map-container" #map></div>
+<pre id="coordinates" class="coordinates"></pre>

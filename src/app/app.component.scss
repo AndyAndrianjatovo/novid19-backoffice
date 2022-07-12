@@ -1,0 +1,125 @@
+
+.navbar{
+    background-color: #FFD098;
+    color:  black;
+    font-family: 'Poppins', sans-serif;
+}
+.space {
+    flex: 1 1 auto;
+  }
+.conteuneur{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
+    // gap: 5%;
+}
+.cont{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 1em;
+}
+.sidemenu{
+    width: 5%;
+    height: 100vh;
+    background-color: #ffffff;
+    border-right: 1px solid #F4F4F4;
+}
+.conteuneur-principal{
+    padding-top: 1%;
+    width: 95%;
+    height: 100vh;
+    background-color: #FCFCFC;
+}
+
+.sidemenu{
+    padding-top: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5em;
+}
+
+#logoSpan{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: black;
+    display: block;
+}
+.menuDiv ul{
+    padding: 0;
+}
+.menuDiv ul li{
+    list-style: none;
+    margin-bottom: 1.5em;
+}
+
+.menuDiv ul li span{
+    width: 1.5em;
+    height: 1.5em;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.menuDiv ul li span#personneAdd{
+    background-image: url('../assets/img/icon/user.png');
+}
+.menuDiv ul li span#personneAdd:hover{
+    background-image: url('../assets/img/icon/users-alt.png');
+}
+.menuDiv ul li span#testAdd{
+    background-image: url('../assets/img/icon/test.png');
+}
+.menuDiv ul li span#testAdd:hover{
+    background-image: url('../assets/img/icon/test-alt.png');
+}
+.menuDiv ul li span#vaccinAdd{
+    background-image: url('../assets/img/icon/vaccin.png');
+}
+.menuDiv ul li span#vaccinAdd:hover{
+    background-image: url('../assets/img/icon/syringe-alt.png');
+}
+.menuDiv ul li span#tdb{
+    background-image: url('../assets/img/icon/browser-mat.png');
+}
+.menuDiv ul li span#tdb:hover{
+    background-image: url('../assets/img/icon/browser.png');
+}
+.menuDiv ul li span#lieu{
+    background-image: url('../assets/img/icon/building-alt.png');
+}
+.menuDiv ul li span#lieu:hover{
+    background-image: url('../assets/img/icon/building.png');
+}
+.menuDiv ul li span#centre{
+    background-image: url('../assets/img/icon/doctor-alt.png');
+}
+.menuDiv ul li span#centre:hover{
+    background-image: url('../assets/img/icon/doctor.png');
+}
+.menuDiv ul li span.active#personneAdd{
+    background-image: url('../assets/img/icon/users-alt.png');
+}
+.menuDiv ul li span.active#testAdd{
+    background-image: url('../assets/img/icon/test-alt.png');
+}
+.menuDiv ul li span.active#vaccinAdd{
+    background-image: url('../assets/img/icon/syringe-alt.png');
+}
+.menuDiv ul li span.active#tdb{
+    background-image: url('../assets/img/icon/browser.png');
+}
+.menuDiv ul li span.active#lieu{
+    background-image: url('../assets/img/icon/building.png');
+}
+.menuDiv ul li span.active#centre{
+    background-image: url('../assets/img/icon/doctor.png');
+}
+.conteuneur-principal{
+    padding-top: 1%;
+}

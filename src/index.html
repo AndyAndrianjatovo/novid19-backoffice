@@ -1,13 +1,83 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Backoffice</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Novid</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=general-sans@600,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=poppins@500,400,300,700,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://unpkg.com/maplibre-gl@2.1.9/dist/maplibre-gl.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="mat-typography">
+    <app-root></app-root>
+    <script>
+      function clickActive(event) {
+        var navbar = document.getElementsByClassName("sidebar")[0];
+        var navbarItems = navbar.getElementsByTagName("span");
+        for (var i = 0; i < navbarItems.length; i++) {
+          navbarItems[i].classList.remove("active");
+        }
+        event.target.classList.add("active");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        for (const el of document.querySelectorAll(
+          "[placeholder][data-slots]"
+        )) {
+          const pattern = el.getAttribute("placeholder"),
+            slots = new Set(el.dataset.slots || "_"),
+            prev = ((j) =>
+              Array.from(pattern, (c, i) => (slots.has(c) ? (j = i + 1) : j)))(
+              0
+            ),
+            first = [...pattern].findIndex((c) => slots.has(c)),
+            accept = new RegExp(el.dataset.accept || "\\d", "g"),
+            clean = (input) => {
+              input = input.match(accept) || [];
+              return Array.from(pattern, (c) =>
+                input[0] === c || slots.has(c) ? input.shift() || c : c
+              );
+            },
+            format = () => {
+              const [i, j] = [el.selectionStart, el.selectionEnd].map((i) => {
+                i = clean(el.value.slice(0, i)).findIndex((c) => slots.has(c));
+                return i < 0
+                  ? prev[prev.length - 1]
+                  : back
+                  ? prev[i - 1] || first
+                  : i;
+              });
+              el.value = clean(el.value).join``;
+              el.setSelectionRange(i, j);
+              back = false;
+            };
+          let back = false;
+          el.addEventListener("keydown", (e) => (back = e.key === "Backspace"));
+          el.addEventListener("input", format);
+          el.addEventListener("focus", format);
+          el.addEventListener(
+            "blur",
+            () => el.value === pattern && (el.value = "")
+          );
+        }
+      });
+    </script>
+  </body>
 </html>

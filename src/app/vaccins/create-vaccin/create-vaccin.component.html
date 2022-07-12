@@ -1,0 +1,93 @@
+<div class="conteuneurFormulaire">
+  <div class="title">
+    <h1>Vaccination</h1>
+  </div>
+  <!-- PERSONNE -->
+  <div class="formItem">
+    <label for="personne">Personne</label>
+    <div class="ng-autocomplete">
+      <ng-autocomplete
+        id="personne"
+        [data]="personnes"
+        [searchKeyword]="keyword"
+        placeholder="Entrer le nom ou le prénom"
+        (selected)="selectEvent($event)"
+        historyIdentifier="personnes"
+        [itemTemplate]="itemTemplate"
+        [notFoundTemplate]="notFoundTemplate"
+        [customFilter]="customFilter"
+        (inputCleared)="onClear($event)"
+      >
+      </ng-autocomplete>
+
+      <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.nom + ' ' + item.prenom"></a>
+      </ng-template>
+
+      <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="personnePart">
+    <app-create [personneSelected]="personneSelected"></app-create>
+    {{ personneSelected.id }}
+  </div>
+
+  <!-- CENTRE -->
+  <div class="formItem">
+    <label for="centre">Centre</label>
+    <div class="ng-autocomplete">
+      <ng-autocomplete
+        id="centre"
+        [data]="centres"
+        [searchKeyword]="keywordCentre"
+        placeholder="Entrer le nom de la centre"
+        (selected)="selectEventCentre($event)"
+        historyIdentifier="centres"
+        [itemTemplate]="itemTemplateCentre"
+        [notFoundTemplate]="notFoundTemplateCentre"
+        [customFilter]="customFilterCentre"
+        (inputCleared)="onClearCentre($event)"
+      >
+      </ng-autocomplete>
+
+      <ng-template #itemTemplateCentre let-item>
+        <a [innerHTML]="item.nomCentre"></a>
+      </ng-template>
+
+      <ng-template #notFoundTemplateCentre let-notFound>
+        <div [innerHTML]="notFound">Aucun centre trouver.</div>
+      </ng-template>
+    </div>
+  </div>
+
+  <!-- <div class="centrePart">
+      <app-create-centre [centreSelected]="centreSelected"></app-create-centre>
+    </div> -->
+
+  <div class="formItem">
+    <label for="dateVaccin" class="normal">Date de la vaccination</label>
+    <input
+      type="date"
+      id="dateVaccin"
+      name="dateVaccin"
+      [(ngModel)]="vaccin.dateVaccin"
+    />
+  </div>
+  <div class="formItem">
+    <label for="nomVaccin" class="normal">Nom du vaccin</label>
+    <input
+      type="text"
+      id="nomVaccin"
+      name="nomVaccin"
+      [(ngModel)]="vaccin.nomVaccin"
+    />
+  </div>
+
+  <div class="formButton" (click)="addVaccination()">
+    <!-- <input type="submit" value="" /> -->
+    <button type="submit"><span id="addTest"></span> Valider</button>
+  </div>
+</div>
