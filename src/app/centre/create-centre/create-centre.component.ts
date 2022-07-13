@@ -19,7 +19,9 @@ import { CentreService } from 'src/app/service/centre.service';
   templateUrl: './create-centre.component.html',
   styleUrls: ['./create-centre.component.scss'],
 })
-export class CreateCentreComponent implements OnInit, OnChanges {
+export class CreateCentreComponent
+  implements OnInit, OnChanges, AfterViewInit, OnDestroy
+{
   centre: Centre = {
     nom_centre: '',
     id_centre: -1,
