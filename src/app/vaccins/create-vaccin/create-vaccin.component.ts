@@ -18,11 +18,10 @@ import { VaccinService } from 'src/app/service/vaccin.service';
 })
 export class CreateVaccinComponent implements OnInit {
   personneSelected: Personne = {
-    id: -1,
-    idPersonne: -1,
+    id_personne: -1,
     nom: '',
     prenom: '',
-    dateNaissance: new Date(),
+    date_naissance: new Date(),
     adresse: '',
     mail: '',
     cin: '',
@@ -30,19 +29,18 @@ export class CreateVaccinComponent implements OnInit {
   };
 
   centreSelected: Centre = {
-    id: -1,
-    idCentre: -1,
-    nomCentre: '',
-    adresseCentre: '',
+    id_centre: -1,
+    nom_centre: '',
+    adresse_centre: '',
+    coordonnees_centre: '',
   };
 
   vaccin: Vaccin = {
-    id: -1,
-    idVaccin: -1,
-    nomVaccin: '',
-    dateVaccin: new Date(),
-    carteId: -1,
-    centreId: -1,
+    id_vaccin: -1,
+    nom_vaccin: '',
+    date_vaccin: new Date(),
+    carte_id: -1,
+    centre_id: -1,
   };
   vaccinToInsert: VaccinToInsert | undefined;
   isNewPersonne: boolean = true;
@@ -50,7 +48,7 @@ export class CreateVaccinComponent implements OnInit {
   carteToInsert: CarteVaccinationToInsert | undefined;
 
   keyword = 'nom';
-  keywordCentre = 'nomCentre';
+  keywordCentre = 'nom_centre';
 
   public personnes: Personne[] = [];
   public centres: Centre[] = [];
@@ -66,11 +64,10 @@ export class CreateVaccinComponent implements OnInit {
 
   onClear(e: any) {
     this.personneSelected = {
-      id: -1,
-      idPersonne: -1,
+      id_personne: -1,
       nom: '',
       prenom: '',
-      dateNaissance: new Date(),
+      date_naissance: new Date(),
       adresse: '',
       mail: '',
       cin: '',
@@ -80,10 +77,10 @@ export class CreateVaccinComponent implements OnInit {
   }
   onClearCentre(e: any) {
     this.centreSelected = {
-      id: -1,
-      idCentre: -1,
-      nomCentre: '',
-      adresseCentre: '',
+      id_centre: -1,
+      nom_centre: '',
+      adresse_centre: '',
+      coordonnees_centre: '',
     };
   }
 
@@ -96,7 +93,7 @@ export class CreateVaccinComponent implements OnInit {
   };
   customFilterCentre = function (centres: Centre[], query: string): any[] {
     return centres.filter((x) =>
-      x.nomCentre.toLowerCase().includes(query.toLowerCase())
+      x.nom_centre.toLowerCase().includes(query.toLowerCase())
     );
   };
 
@@ -117,7 +114,7 @@ export class CreateVaccinComponent implements OnInit {
       this.personneToInsert = {
         nom: this.personneSelected.nom,
         prenom: this.personneSelected.prenom,
-        dateNaissance: this.personneSelected.dateNaissance,
+        date_naissance: this.personneSelected.date_naissance,
         adresse: this.personneSelected.adresse,
         mail: this.personneSelected.mail,
         cin: this.personneSelected.cin,
@@ -128,25 +125,24 @@ export class CreateVaccinComponent implements OnInit {
         .subscribe((data) => {
           this.personneSelected = data;
           this.carteToInsert = {
-            personneId: this.personneSelected.id,
+            personne_id: this.personneSelected.id_personne,
           };
           this.carteService.addCarte(this.carteToInsert).subscribe((data) => {
-            this.vaccin.carteId = data.id;
+            this.vaccin.carte_id = data.id_carte;
             this.vaccinToInsert = {
-              nomVaccin: this.vaccin.nomVaccin,
-              dateVaccin: this.vaccin.dateVaccin,
-              carteId: this.vaccin.carteId,
-              centreId: this.centreSelected.id,
+              nom_vaccin: this.vaccin.nom_vaccin,
+              date_vaccin: this.vaccin.date_vaccin,
+              carte_id: this.vaccin.carte_id,
+              centre_id: this.centreSelected.id_centre,
             };
             this.vaccinService
               .addVaccin(this.vaccinToInsert)
               .subscribe((data) => {
                 this.personneSelected = {
-                  id: -1,
-                  idPersonne: -1,
+                  id_personne: -1,
                   nom: '',
                   prenom: '',
-                  dateNaissance: new Date(),
+                  date_naissance: new Date(),
                   adresse: '',
                   mail: '',
                   cin: '',
@@ -154,19 +150,18 @@ export class CreateVaccinComponent implements OnInit {
                 };
 
                 this.centreSelected = {
-                  id: -1,
-                  idCentre: -1,
-                  nomCentre: '',
-                  adresseCentre: '',
+                  id_centre: -1,
+                  nom_centre: '',
+                  adresse_centre: '',
+                  coordonnees_centre: '',
                 };
 
                 this.vaccin = {
-                  id: -1,
-                  idVaccin: -1,
-                  nomVaccin: '',
-                  dateVaccin: new Date(),
-                  carteId: -1,
-                  centreId: -1,
+                  id_vaccin: -1,
+                  nom_vaccin: '',
+                  date_vaccin: new Date(),
+                  carte_id: -1,
+                  centre_id: -1,
                 };
               });
           });
@@ -174,24 +169,23 @@ export class CreateVaccinComponent implements OnInit {
     } else {
       this.carteService.getCartes().subscribe((data: CarteVaccination[]) => {
         var dataFiltre = data.filter(
-          (x) => x.personneId === this.personneSelected.id
+          (x) => x.personne_id === this.personneSelected.id_personne
         );
         if (dataFiltre.length > 0) {
           this.vaccinToInsert = {
-            nomVaccin: this.vaccin.nomVaccin,
-            dateVaccin: this.vaccin.dateVaccin,
-            carteId: dataFiltre[0].id,
-            centreId: this.centreSelected.id,
+            nom_vaccin: this.vaccin.nom_vaccin,
+            date_vaccin: this.vaccin.date_vaccin,
+            carte_id: dataFiltre[0].id_carte,
+            centre_id: this.centreSelected.id_centre,
           };
           this.vaccinService
             .addVaccin(this.vaccinToInsert)
             .subscribe((data) => {
               this.personneSelected = {
-                id: -1,
-                idPersonne: -1,
+                id_personne: -1,
                 nom: '',
                 prenom: '',
-                dateNaissance: new Date(),
+                date_naissance: new Date(),
                 adresse: '',
                 mail: '',
                 cin: '',
@@ -199,42 +193,40 @@ export class CreateVaccinComponent implements OnInit {
               };
 
               this.centreSelected = {
-                id: -1,
-                idCentre: -1,
-                nomCentre: '',
-                adresseCentre: '',
+                id_centre: -1,
+                nom_centre: '',
+                adresse_centre: '',
+                coordonnees_centre: '',
               };
 
               this.vaccin = {
-                id: -1,
-                idVaccin: -1,
-                nomVaccin: '',
-                dateVaccin: new Date(),
-                carteId: -1,
-                centreId: -1,
+                id_vaccin: -1,
+                nom_vaccin: '',
+                date_vaccin: new Date(),
+                carte_id: -1,
+                centre_id: -1,
               };
             });
         } else {
           this.carteToInsert = {
-            personneId: this.personneSelected.id,
+            personne_id: this.personneSelected.id_personne,
           };
           this.carteService.addCarte(this.carteToInsert).subscribe((data) => {
-            this.vaccin.carteId = data.id;
+            this.vaccin.carte_id = data.id_carte;
             this.vaccinToInsert = {
-              nomVaccin: this.vaccin.nomVaccin,
-              dateVaccin: this.vaccin.dateVaccin,
-              carteId: this.vaccin.carteId,
-              centreId: this.centreSelected.id,
+              nom_vaccin: this.vaccin.nom_vaccin,
+              date_vaccin: this.vaccin.date_vaccin,
+              carte_id: this.vaccin.carte_id,
+              centre_id: this.centreSelected.id_centre,
             };
             this.vaccinService
               .addVaccin(this.vaccinToInsert)
               .subscribe((data) => {
                 this.personneSelected = {
-                  id: -1,
-                  idPersonne: -1,
+                  id_personne: -1,
                   nom: '',
                   prenom: '',
-                  dateNaissance: new Date(),
+                  date_naissance: new Date(),
                   adresse: '',
                   mail: '',
                   cin: '',
@@ -242,19 +234,18 @@ export class CreateVaccinComponent implements OnInit {
                 };
 
                 this.centreSelected = {
-                  id: -1,
-                  idCentre: -1,
-                  nomCentre: '',
-                  adresseCentre: '',
+                  id_centre: -1,
+                  nom_centre: '',
+                  adresse_centre: '',
+                  coordonnees_centre: '',
                 };
 
                 this.vaccin = {
-                  id: -1,
-                  idVaccin: -1,
-                  nomVaccin: '',
-                  dateVaccin: new Date(),
-                  carteId: -1,
-                  centreId: -1,
+                  id_vaccin: -1,
+                  nom_vaccin: '',
+                  date_vaccin: new Date(),
+                  carte_id: -1,
+                  centre_id: -1,
                 };
               });
           });

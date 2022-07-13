@@ -32,7 +32,6 @@
 
   <div class="personnePart">
     <app-create [personneSelected]="personneSelected"></app-create>
-    {{ personneSelected.id }}
   </div>
 
   <!-- CENTRE -->
@@ -54,7 +53,7 @@
       </ng-autocomplete>
 
       <ng-template #itemTemplateCentre let-item>
-        <a [innerHTML]="item.nomCentre"></a>
+        <a [innerHTML]="item.nom_centre + ' ' + item.adresse_centre"></a>
       </ng-template>
 
       <ng-template #notFoundTemplateCentre let-notFound>
@@ -68,21 +67,21 @@
     </div> -->
 
   <div class="formItem">
-    <label for="dateVaccin" class="normal">Date de la vaccination</label>
+    <label for="date_vaccin" class="normal">Date de la vaccination</label>
     <input
       type="date"
-      id="dateVaccin"
-      name="dateVaccin"
-      [(ngModel)]="vaccin.dateVaccin"
+      id="date_vaccin"
+      name="date_vaccin"
+      [(ngModel)]="vaccin.date_vaccin"
     />
   </div>
   <div class="formItem">
-    <label for="nomVaccin" class="normal">Nom du vaccin</label>
+    <label for="nom_vaccin" class="normal">Nom du vaccin</label>
     <input
       type="text"
-      id="nomVaccin"
-      name="nomVaccin"
-      [(ngModel)]="vaccin.nomVaccin"
+      id="nom_vaccin"
+      name="nom_vaccin"
+      [(ngModel)]="vaccin.nom_vaccin"
     />
   </div>
 

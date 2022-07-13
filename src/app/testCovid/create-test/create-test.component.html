@@ -55,7 +55,7 @@
       </ng-autocomplete>
 
       <ng-template #itemTemplateCentre let-item>
-        <a [innerHTML]="item.nomCentre"></a>
+        <a [innerHTML]="item.nom_centre + ' ' + item.adresse_centre"></a>
       </ng-template>
 
       <ng-template #notFoundTemplateCentre let-notFound>
@@ -69,17 +69,17 @@
   </div> -->
 
   <div class="formItem">
-    <label for="dateTest" class="normal">Date du test</label>
+    <label for="date_test" class="normal">Date du test</label>
     <input
       type="date"
-      id="dateTest"
-      name="dateTest"
-      [(ngModel)]="tests.dateTest"
+      id="date_test"
+      name="date_test"
+      [(ngModel)]="tests.date_test"
     />
   </div>
   <div class="formItem">
     <label for="sexe" class="normal">Résultat</label>
-    <select name="sexe" id="sexe" [(ngModel)]="tests.etatTest">
+    <select name="sexe" id="sexe" [(ngModel)]="tests.etat_test">
       <option value="1">Positif</option>
       <option value="2">Négatif</option>
     </select>

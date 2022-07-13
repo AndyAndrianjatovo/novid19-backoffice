@@ -14,10 +14,11 @@ export class CreateLieuComponent implements OnInit {
   private mapContainer!: ElementRef<HTMLElement>;
 
   lieu: Lieu = {
-    idLieu: -1,
-    nomLieu: '',
-    adresseLieu: '',
-    statutLieu: -1,
+    id_lieu: -1,
+    nom_lieu: '',
+    adresse_lieu: '',
+    statut_lieu: -1,
+    coordonnees_lieu: '',
   };
 
   constructor() {}
@@ -42,7 +43,7 @@ export class CreateLieuComponent implements OnInit {
 
     this.map.on('click', (e) => {
       const { lng, lat } = e.lngLat;
-      this.lieu.adresseLieu = `${lng}, ${lat}`;
+      this.lieu.coordonnees_lieu = `${lng}, ${lat}`;
       var monument: [number, number] = [lng, lat];
 
       // create DOM element for the marker

@@ -14,11 +14,10 @@ import { TestCovidService } from 'src/app/service/test-covid.service';
 })
 export class CreateTestComponent implements OnInit {
   personneSelected: Personne = {
-    id: -1,
-    idPersonne: -1,
+    id_personne: -1,
     nom: '',
     prenom: '',
-    dateNaissance: new Date(),
+    date_naissance: new Date(),
     adresse: '',
     mail: '',
     cin: '',
@@ -30,17 +29,17 @@ export class CreateTestComponent implements OnInit {
   personneToInsert: PersonneToInsert | undefined;
 
   centreSelected: Centre = {
-    id: -1,
-    idCentre: -1,
-    nomCentre: '',
-    adresseCentre: '',
+    id_centre: -1,
+    nom_centre: '',
+    adresse_centre: '',
+    coordonnees_centre: '',
   };
 
   tests!: Test;
   testToInsert: TestToInsert | undefined;
 
   keyword = 'nom';
-  keywordCentre = 'nomCentre';
+  keywordCentre = 'nom_centre';
 
   personnes: Personne[] = [];
   centres: Centre[] = [];
@@ -63,11 +62,10 @@ export class CreateTestComponent implements OnInit {
 
   onClear(e: any) {
     this.personneSelected = {
-      id: -1,
-      idPersonne: -1,
+      id_personne: -1,
       nom: '',
       prenom: '',
-      dateNaissance: new Date(),
+      date_naissance: new Date(),
       adresse: '',
       mail: '',
       cin: '',
@@ -77,10 +75,10 @@ export class CreateTestComponent implements OnInit {
   }
   onClearCentre(e: any) {
     this.centreSelected = {
-      id: -1,
-      idCentre: -1,
-      nomCentre: '',
-      adresseCentre: '',
+      id_centre: -1,
+      nom_centre: '',
+      adresse_centre: '',
+      coordonnees_centre: '',
     };
   }
 
@@ -101,18 +99,17 @@ export class CreateTestComponent implements OnInit {
   };
   customFilterCentre = function (centres: Centre[], query: string): any[] {
     return centres.filter((x) =>
-      x.nomCentre.toLowerCase().includes(query.toLowerCase())
+      x.nom_centre.toLowerCase().includes(query.toLowerCase())
     );
   };
 
   ngOnInit(): void {
     this.tests = {
-      id: -1,
-      idTest: -1,
-      dateTest: new Date(),
-      centreId: -1,
-      personneId: -1,
-      etatTest: -1,
+      id_test: -1,
+      date_test: new Date(),
+      centre_id: -1,
+      personne_id: -1,
+      etat_test: -1,
     };
 
     this.getPersonnes();
@@ -135,7 +132,7 @@ export class CreateTestComponent implements OnInit {
       this.personneToInsert = {
         nom: this.personneSelected.nom,
         prenom: this.personneSelected.prenom,
-        dateNaissance: this.personneSelected.dateNaissance,
+        date_naissance: this.personneSelected.date_naissance,
         adresse: this.personneSelected.adresse,
         mail: this.personneSelected.mail,
         cin: this.personneSelected.cin,
@@ -146,78 +143,74 @@ export class CreateTestComponent implements OnInit {
         .addPersonne(this.personneToInsert)
         .subscribe((data) => {
           this.personneSelected = data;
-          this.tests.personneId = this.personneSelected.id;
-          this.tests.centreId = this.centreSelected.id;
+          this.tests.personne_id = data.id_personne;
+          this.tests.centre_id = this.centreSelected.id_centre;
           this.testToInsert = {
-            centreId: this.tests.centreId,
-            personneId: this.tests.personneId,
-            dateTest: this.tests.dateTest,
-            etatTest: this.tests.etatTest,
+            centre_id: this.tests.centre_id,
+            personne_id: this.tests.personne_id,
+            date_test: this.tests.date_test,
+            etat_test: this.tests.etat_test,
           };
-          this.testService.addTest(this.tests).subscribe((data) => {
+          this.testService.addTest(this.testToInsert).subscribe((data) => {
             this.tests = {
-              id: -1,
-              idTest: -1,
-              dateTest: new Date(),
-              centreId: -1,
-              personneId: -1,
-              etatTest: -1,
+              id_test: -1,
+              date_test: new Date(),
+              centre_id: -1,
+              personne_id: -1,
+              etat_test: -1,
             };
             this.personneSelected = {
-              id: -1,
-              idPersonne: -1,
+              id_personne: -1,
               nom: '',
               prenom: '',
-              dateNaissance: new Date(),
+              date_naissance: new Date(),
               adresse: '',
               mail: '',
               cin: '',
               sexe: 0,
             };
             this.centreSelected = {
-              id: -1,
-              idCentre: -1,
-              nomCentre: '',
-              adresseCentre: '',
+              id_centre: -1,
+              nom_centre: '',
+              adresse_centre: '',
+              coordonnees_centre: '',
             };
           });
         });
     } else {
-      this.tests.centreId = this.centreSelected.id;
-      this.tests.personneId = this.personneSelected.id;
+      this.tests.centre_id = this.centreSelected.id_centre;
+      this.tests.personne_id = this.personneSelected.id_personne;
 
       this.testToInsert = {
-        centreId: this.tests.centreId,
-        personneId: this.tests.personneId,
-        dateTest: this.tests.dateTest,
-        etatTest: this.tests.etatTest,
+        centre_id: this.tests.centre_id,
+        personne_id: this.tests.personne_id,
+        date_test: this.tests.date_test,
+        etat_test: this.tests.etat_test,
       };
 
       this.testService.addTest(this.testToInsert).subscribe((data) => {
         this.tests = {
-          id: -1,
-          idTest: -1,
-          dateTest: new Date(),
-          centreId: -1,
-          personneId: -1,
-          etatTest: -1,
+          id_test: -1,
+          date_test: new Date(),
+          centre_id: -1,
+          personne_id: -1,
+          etat_test: -1,
         };
         this.personneSelected = {
-          id: -1,
-          idPersonne: -1,
+          id_personne: -1,
           nom: '',
           prenom: '',
-          dateNaissance: new Date(),
+          date_naissance: new Date(),
           adresse: '',
           mail: '',
           cin: '',
           sexe: 0,
         };
         this.centreSelected = {
-          id: -1,
-          idCentre: -1,
-          nomCentre: '',
-          adresseCentre: '',
+          id_centre: -1,
+          nom_centre: '',
+          adresse_centre: '',
+          coordonnees_centre: '',
         };
       });
     }

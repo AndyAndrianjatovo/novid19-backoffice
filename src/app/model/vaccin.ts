@@ -1,15 +1,14 @@
 export interface Vaccin {
-  id: number;
-  idVaccin: number;
-  nomVaccin: string;
-  centreId: number;
-  dateVaccin: Date;
-  carteId: number;
+  id_vaccin: number;
+  nom_vaccin: string;
+  centre_id: number;
+  date_vaccin: Date;
+  carte_id: number;
 }
 
 export interface VaccinToInsert {
-  nomVaccin: string;
-  centreId: number;
-  dateVaccin: Date;
-  carteId: number;
+  nom_vaccin: string;
+  centre_id: number;
+  date_vaccin: Date;
+  carte_id: number;
 }

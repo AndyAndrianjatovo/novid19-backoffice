@@ -35,7 +35,7 @@ export class TdbComponent implements OnInit {
   getAllTests() {
     this.testService.getTests().subscribe((data: Test[]) => {
       this.tests = data;
-      this.testsPositif = data.filter((test) => test.etatTest === 1);
+      this.testsPositif = data.filter((test) => test.etat_test === 1);
       this.saleData.push({ name: 'Test effectué', value: this.tests.length });
       this.saleData.push({
         name: 'Cas positif',

@@ -12,7 +12,7 @@
           id="nom"
           name="nom"
           [(ngModel)]="personne.nom"
-          [disabled]="personne.idPersonne !== -1"
+          [disabled]="personne.id_personne !== -1"
         />
       </div>
       <div class="formItem">
@@ -21,7 +21,7 @@
           type="text"
           id="prenom"
           name="prenom"
-          [disabled]="personne.idPersonne !== -1"
+          [disabled]="personne.id_personne !== -1"
           [(ngModel)]="personne.prenom"
         />
       </div>
@@ -33,7 +33,7 @@
         id="mail"
         name="mail"
         [(ngModel)]="personne.mail"
-        [disabled]="personne.idPersonne !== -1"
+        [disabled]="personne.id_personne !== -1"
       />
     </div>
     <div class="formItem">
@@ -43,19 +43,19 @@
         id="adresse"
         name="adresse"
         [(ngModel)]="personne.adresse"
-        [disabled]="personne.idPersonne !== -1"
+        [disabled]="personne.id_personne !== -1"
       />
     </div>
     <!-- <div class="formGroupItem"> -->
     <div class="formItem">
-      <label for="dateNaissance">Date de naissance:</label>
+      <label for="date_naissance">Date de naissance:</label>
       <input
         type="date"
-        id="dateNaissance"
-        name="dateNaissance"
-        [(ngModel)]="personne.dateNaissance"
-        [ngModel]="personne.dateNaissance | date: 'yyyy-MM-dd'"
-        [disabled]="personne.idPersonne !== -1"
+        id="date_naissance"
+        name="date_naissance"
+        [(ngModel)]="personne.date_naissance"
+        [ngModel]="personne.date_naissance | date: 'yyyy-MM-dd'"
+        [disabled]="personne.id_personne !== -1"
       />
     </div>
     <div class="formItem">
@@ -64,7 +64,7 @@
         name="sexe"
         id="sexe"
         [(ngModel)]="personne.sexe"
-        [disabled]="personne.idPersonne !== -1"
+        [disabled]="personne.id_personne !== -1"
       >
         <option value="1">Homme</option>
         <option value="2">Femme</option>
@@ -88,7 +88,7 @@
         data-accept="\d"
         size="12"
         [(ngModel)]="personne.cin"
-        [disabled]="personne.idPersonne !== -1"
+        [disabled]="personne.id_personne !== -1"
       />
     </div>
 

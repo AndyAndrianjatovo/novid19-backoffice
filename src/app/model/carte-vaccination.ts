@@ -1,9 +1,8 @@
 export interface CarteVaccination {
-  id: number;
-  idCarte: number;
-  personneId: number;
+  id_carte: number;
+  personne_id: number;
 }
 
 export interface CarteVaccinationToInsert {
-  personneId: number;
+  personne_id: number;
 }

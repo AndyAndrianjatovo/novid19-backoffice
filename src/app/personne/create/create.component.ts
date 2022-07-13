@@ -24,11 +24,10 @@ export class CreateComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.personne = {
-      id: -1,
-      idPersonne: -1,
+      id_personne: -1,
       nom: '',
       prenom: '',
-      dateNaissance: new Date(),
+      date_naissance: new Date(),
       adresse: '',
       mail: '',
       cin: '',
@@ -47,7 +46,7 @@ export class CreateComponent implements OnInit, OnChanges {
     this.personneToInsert = {
       nom: this.personne.nom,
       prenom: this.personne.prenom,
-      dateNaissance: this.personne.dateNaissance,
+      date_naissance: this.personne.date_naissance,
       adresse: this.personne.adresse,
       mail: this.personne.mail,
       cin: this.personne.cin,
@@ -58,11 +57,10 @@ export class CreateComponent implements OnInit, OnChanges {
       .subscribe((data) => {
         console.log(data);
         this.personne = {
-          id: -1,
-          idPersonne: -1,
+          id_personne: -1,
           nom: '',
           prenom: '',
-          dateNaissance: new Date(),
+          date_naissance: new Date(),
           adresse: '',
           mail: '',
           cin: '',

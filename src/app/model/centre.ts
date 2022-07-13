@@ -1,11 +1,12 @@
 export interface Centre {
-  id: number;
-  idCentre: number;
-  nomCentre: string;
-  adresseCentre: string;
+  id_centre: number;
+  nom_centre: string;
+  adresse_centre: string;
+  coordonnees_centre: string;
 }
 
 export interface CentreToInsert {
-  nomCentre: string;
-  adresseCentre: string;
+  nom_centre: string;
+  adresse_centre: string;
+  coordonnees_centre: string;
 }

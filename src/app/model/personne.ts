@@ -1,10 +1,9 @@
 export interface Personne {
-  id: number;
-  idPersonne: number;
+  id_personne: number;
   nom: string;
   prenom: string;
   mail: string;
-  dateNaissance: Date;
+  date_naissance: Date;
   adresse: string;
   sexe: number;
   cin: string;
@@ -14,7 +13,7 @@ export interface PersonneToInsert {
   nom: string;
   prenom: string;
   mail: string;
-  dateNaissance: Date;
+  date_naissance: Date;
   adresse: string;
   sexe: number;
   cin: string;

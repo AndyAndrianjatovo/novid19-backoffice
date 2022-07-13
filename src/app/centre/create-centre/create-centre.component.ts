@@ -21,10 +21,10 @@ import { CentreService } from 'src/app/service/centre.service';
 })
 export class CreateCentreComponent implements OnInit, OnChanges {
   centre: Centre = {
-    id: -1,
-    nomCentre: '',
-    idCentre: -1,
-    adresseCentre: '',
+    nom_centre: '',
+    id_centre: -1,
+    adresse_centre: '',
+    coordonnees_centre: '',
   };
 
   centreToInsert: CentreToInsert | undefined;
@@ -61,7 +61,7 @@ export class CreateCentreComponent implements OnInit, OnChanges {
 
     this.map.on('click', (e) => {
       const { lng, lat } = e.lngLat;
-      this.centre.adresseCentre = `${lng}, ${lat}`;
+      this.centre.coordonnees_centre = `${lng}, ${lat}`;
       var monument: [number, number] = [lng, lat];
 
       // create DOM element for the marker
@@ -91,17 +91,21 @@ export class CreateCentreComponent implements OnInit, OnChanges {
 
   addCentre() {
     this.centreToInsert = {
-      nomCentre: this.centre.nomCentre,
-      adresseCentre: this.centre.adresseCentre,
+      nom_centre: this.centre.nom_centre,
+      adresse_centre: this.centre.adresse_centre,
+      coordonnees_centre: this.centre.coordonnees_centre,
     };
     this.centreService.addCentre(this.centreToInsert).subscribe((data) => {
-      console.log(data);
       this.centre = {
-        id: -1,
-        nomCentre: '',
-        idCentre: -1,
-        adresseCentre: '',
+        nom_centre: '',
+        id_centre: -1,
+        adresse_centre: '',
+        coordonnees_centre: '',
       };
+      var markers = document.getElementsByClassName('markerIcon');
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].remove();
+      }
     });
   }
 }

@@ -14,22 +14,31 @@
           type="text"
           id="nom"
           name="nom"
-          [(ngModel)]="lieu.nomLieu"
-          [disabled]="lieu.idLieu !== -1"
+          [(ngModel)]="lieu.nom_lieu"
+          [disabled]="lieu.id_lieu !== -1"
         />
       </div>
       <div class="formItem">
-        <label for="adresseLieu">Adresse lieu</label>
+        <label for="adresse_lieu">Adresse lieu</label>
         <input
           type="text"
-          id="adresseLieu"
-          name="adresseLieu"
-          [disabled]="lieu.idLieu !== -1"
-          [(ngModel)]="lieu.adresseLieu"
+          id="adresse_lieu"
+          name="adresse_lieu"
+          [disabled]="lieu.id_lieu !== -1"
+          [(ngModel)]="lieu.adresse_lieu"
         />
       </div>
     </div>
-
+    <div class="formItem">
+      <label for="coordonnees_lieu">Coordonnéeslieu</label>
+      <input
+        type="text"
+        id="coordonnees_lieu"
+        name="coordonnees_lieu"
+        [disabled]="lieu.id_lieu !== -1"
+        [(ngModel)]="lieu.coordonnees_lieu"
+      />
+    </div>
     <!-- </mat-card> -->
   </div>
 </div>

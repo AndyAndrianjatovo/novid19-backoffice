@@ -20,11 +20,10 @@ export class DetailPersonneComponent implements OnInit {
     this.personneService.getPersonne(1).subscribe(
       (data: Personne) =>
         (this.personne = {
-          id: data.id,
-          idPersonne: data.idPersonne,
+          id_personne: data.id_personne,
           nom: data.nom,
           prenom: data.prenom,
-          dateNaissance: data.dateNaissance,
+          date_naissance: data.date_naissance,
           adresse: data.adresse,
           mail: data.mail,
           cin: data.cin,
