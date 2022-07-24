@@ -1,1 +1,24 @@
-<p>detail-test works!</p>
+<div class="conteuneurDialog" id="contentToConvert">
+  <h1>Résultat du test</h1>
+  <p>
+    M./Mme/Mlle {{ data.testToDisplay.personne.nom }}
+    {{ data.testToDisplay.personne.prenom }}
+  </p>
+  <p>
+    né(e) le
+    {{ data.testToDisplay.personne.date_naissance | date: "dd/MM/yyyy" }}
+  </p>
+  <p>domicilé(e) au {{ data.testToDisplay.personne.adresse }}</p>
+  <p>
+    à été testé(e) le
+    {{ data.testToDisplay.date_test | date: "dd/MM/yyyy" }} avec un résultat
+    {{ getStatuts(data.testToDisplay.etat_test) }}
+  </p>
+  <ngx-qrcode
+    value="{{ data.testToDisplay.id_test }}"
+    cssClass="qrcodeshadow"
+  ></ngx-qrcode>
+</div>
+<button mat-button color="secondary" (click)="convetToPDF()">
+  Télécharger l'affiche
+</button>

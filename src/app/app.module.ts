@@ -24,6 +24,13 @@ import { CreateVaccinComponent } from './vaccins/create-vaccin/create-vaccin.com
 import { CreateTestComponent } from './testCovid/create-test/create-test.component';
 import { DetailTestComponent } from './testCovid/detail-test/detail-test.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListeTestComponent } from './testCovid/liste-test/liste-test.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -39,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     CreateVaccinComponent,
     CreateTestComponent,
     DetailTestComponent,
+    ListeTestComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +62,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     AutocompleteLibModule,
     HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
+    NgxQRCodeModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

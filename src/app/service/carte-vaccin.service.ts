@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { apiUrl } from 'src/environments/environment';
+import { apiUrlGrails } from 'src/environments/environment';
 import {
   CarteVaccination,
   CarteVaccinationToInsert,
@@ -11,7 +11,7 @@ import {
   providedIn: 'root',
 })
 export class CarteVaccinService {
-  configUrl = apiUrl;
+  configUrl = apiUrlGrails;
 
   constructor(private http: HttpClient) {}
 

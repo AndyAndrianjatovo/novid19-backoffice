@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { apiUrl } from 'src/environments/environment';
+import { apiUrlGrails } from 'src/environments/environment';
 import { Vaccin, VaccinToInsert } from '../model/vaccin';
 
 @Injectable({
   providedIn: 'root',
 })
 export class VaccinService {
-  configUrl = apiUrl;
+  configUrl = apiUrlGrails;
 
   constructor(private http: HttpClient) {}
 

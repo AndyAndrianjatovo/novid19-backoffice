@@ -1,1 +1,6 @@
-<p>detail-lieu works!</p>
+<div *ngFor="let a of lieux">
+  {{ a.nom_lieu }}
+  {{ a.adresse_lieu }}
+  {{ a.coordonnees_lieu }}
+</div>
+Lieux :{{ lieux?.length }}

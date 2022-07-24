@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as maplibregl from 'maplibre-gl';
 import { Map, NavigationControl } from 'maplibre-gl';
-import { Lieu } from 'src/app/model/lieu';
+import { Lieu, LieuToInsert } from 'src/app/model/lieu';
+import { LieuService } from 'src/app/service/lieu.service';
 
 @Component({
   selector: 'app-create-lieu',
@@ -14,14 +15,16 @@ export class CreateLieuComponent implements OnInit {
   private mapContainer!: ElementRef<HTMLElement>;
 
   lieu: Lieu = {
-    id_lieu: -1,
+    _id: -1,
     nom_lieu: '',
     adresse_lieu: '',
     statut_lieu: -1,
     coordonnees_lieu: '',
   };
 
-  constructor() {}
+  lieuToInsert: LieuToInsert | undefined;
+
+  constructor(private lieuService: LieuService) {}
 
   ngOnInit(): void {}
 
@@ -69,5 +72,27 @@ export class CreateLieuComponent implements OnInit {
   }
   ngOnDestroy() {
     this.map?.remove();
+  }
+
+  addLieu() {
+    this.lieuToInsert = {
+      nom_lieu: this.lieu.nom_lieu,
+      adresse_lieu: this.lieu.adresse_lieu,
+      statut_lieu: 1,
+      coordonnees_lieu: this.lieu.coordonnees_lieu,
+    };
+    this.lieuService.addLieu(this.lieuToInsert).subscribe((data) => {
+      this.lieu = {
+        _id: -1,
+        nom_lieu: '',
+        adresse_lieu: '',
+        statut_lieu: -1,
+        coordonnees_lieu: '',
+      };
+      var markers = document.getElementsByClassName('markerIcon');
+      for (var i = 0; i < markers.length; i++) {
+        markers[i].remove();
+      }
+    });
   }
 }
