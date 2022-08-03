@@ -1,4 +1,4 @@
-<mat-toolbar class="navbar mat-elevation-z8">
+<!-- <mat-toolbar class="navbar mat-elevation-z8">
   <mat-toolbar-row>
     <span>Novid 19</span>
     <span class="space"></span>
@@ -49,23 +49,239 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-</div>
-<!-- <main class="main">
+</div> -->
+<main class="main">
   <div class="sideNav">
     <div class="logoPart">
       <div class="logoDiv">
-        <span id="logoSpan"></span>
+        <span id="logoSpan">
+          <a routerLink="/"> <img src="assets/img/icon/novid.png" alt="" /></a>
+        </span>
       </div>
     </div>
     <ul class="linkPart">
-      <li><a href="">Home</a></li>
-      <li><a href="">Dashboard</a></li>
-      <li><a href="">Projects</a></li>
+      <li>
+        <mat-accordion>
+          <mat-expansion-panel
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="link">
+                  <div class="leftLink">
+                    <img
+                      src="assets/img/icon/stats-chart-outline.svg"
+                      alt=""
+                      class="icon"
+                    />
+                    <span class="linkText">Tableaux de bord</span>
+                  </div>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul class="linkPanel">
+              <li>
+                <a
+                  [routerLink]="['/tdb']"
+                  routerLinkActive="active"
+                  queryParamsHandling="merge"
+                >
+                  <span id="tdb" class="link">Statistiques</span>
+                </a>
+              </li>
+            </ul>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+      <li>
+        <mat-accordion>
+          <mat-expansion-panel
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="link">
+                  <div class="leftLink">
+                    <img
+                      src="assets/img/icon/flask-outline.svg"
+                      alt=""
+                      class="icon"
+                    />
+                    <span class="linkText">Tests</span>
+                  </div>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul class="linkPanel">
+              <li>
+                <a
+                  [routerLink]="['/test']"
+                  routerLinkActive="active"
+                  queryParamsHandling="merge"
+                >
+                  <span id="tdb" class="link">Ajout</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  [routerLink]="['/listeTest']"
+                  routerLinkActive="active"
+                  queryParamsHandling="merge"
+                >
+                  <span id="tdb" class="link">Liste</span>
+                </a>
+              </li>
+            </ul>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+      <li>
+        <mat-accordion>
+          <mat-expansion-panel
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="link">
+                  <div class="leftLink">
+                    <img
+                      src="assets/img/icon/shield-outline.svg"
+                      alt=""
+                      class="icon"
+                    />
+                    <span class="linkText">Vaccins</span>
+                  </div>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul class="linkPanel">
+              <li>
+                <a
+                  [routerLink]="['/vaccine']"
+                  routerLinkActive="active"
+                  queryParamsHandling="merge"
+                >
+                  <span id="tdb" class="link">Ajout</span>
+                </a>
+              </li>
+            </ul>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </li>
+      <li>
+        <!-- <div class="link"> -->
+        <mat-accordion>
+          <mat-expansion-panel
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="link">
+                  <div class="leftLink">
+                    <img
+                      src="assets/img/icon/trail-sign-outline.svg"
+                      alt=""
+                      class="icon"
+                    />
+                    <span class="linkText">Lieux partenaires</span>
+                  </div>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul class="linkPanel">
+              <li>
+                <a
+                  [routerLink]="['/place']"
+                  routerLinkActive="active"
+                  queryParamsHandling="merge"
+                >
+                  <span id="tdb" class="link">Ajout</span>
+                </a>
+              </li>
+            </ul>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!-- </div> -->
+      </li>
+      <li>
+        <!-- <div class="link"> -->
+        <mat-accordion>
+          <mat-expansion-panel
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="link">
+                  <div class="leftLink">
+                    <img
+                      src="assets/img/icon/medkit-outline.svg"
+                      alt=""
+                      class="icon"
+                    />
+                    <span class="linkText">Centres</span>
+                  </div>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul class="linkPanel">
+              <li>
+                <a
+                  [routerLink]="['/doctor']"
+                  routerLinkActive="active"
+                  queryParamsHandling="merge"
+                >
+                  <span id="tdb" class="link">Ajout</span>
+                </a>
+              </li>
+            </ul>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!-- </div> -->
+      </li>
+      <li>
+        <!-- <div class="link"> -->
+        <mat-accordion>
+          <mat-expansion-panel
+            (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <div class="link">
+                  <div class="leftLink">
+                    <img
+                      src="assets/img/icon/people-outline.svg"
+                      alt=""
+                      class="icon"
+                    />
+                    <span class="linkText">Personnes</span>
+                  </div>
+                </div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul class="linkPanel">
+              <li>
+                <a
+                  [routerLink]="['/person']"
+                  routerLinkActive="active"
+                  queryParamsHandling="merge"
+                >
+                  <span id="tdb" class="link">Ajout</span>
+                </a>
+              </li>
+            </ul>
+          </mat-expansion-panel>
+        </mat-accordion>
+        <!-- </div> -->
+      </li>
     </ul>
   </div>
   <div class="content">
-    <h1>Hello</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-      quidem!</p>
+    <router-outlet></router-outlet>
   </div>
-</main> -->
+</main>

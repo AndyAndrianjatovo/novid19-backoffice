@@ -1,8 +1,9 @@
-@import '~maplibre-gl/dist/maplibre-gl.css';
-body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    width: 100vw;
-    box-sizing: border-box;
+@import "~maplibre-gl/dist/maplibre-gl.css";
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  width: 100vw;
+  box-sizing: border-box;
+  // overflow: hidden;
 }

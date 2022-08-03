@@ -31,6 +31,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { ListeCentreComponent } from './centre/liste-centre/liste-centre.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { MatInputModule } from '@angular/material/input';
     CreateTestComponent,
     DetailTestComponent,
     ListeTestComponent,
+    ListeCentreComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,7 @@ import { MatInputModule } from '@angular/material/input';
     MatDialogModule,
     NgxQRCodeModule,
     MatInputModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -11,6 +11,7 @@ export interface Test {
 }
 
 export interface TestToDisplay {
+  _id: String;
   id_test: String;
   date_test: Date;
   etat_test: number;

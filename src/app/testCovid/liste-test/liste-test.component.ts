@@ -3,14 +3,8 @@ import { Centre } from 'src/app/models/centre';
 import { Personne } from 'src/app/models/personne';
 import { Test, TestToDisplay } from 'src/app/models/test';
 import { CentreService } from 'src/app/services/centre.service';
-import {
-  
-  PersonneServiceService,
-} from 'src/app/services/personne-service.service';
-import {
-  
-  TestCovidService,
-} from 'src/app/services/test-covid.service';
+import { PersonneServiceService } from 'src/app/services/personne-service.service';
+import { TestCovidService } from 'src/app/services/test-covid.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -42,8 +36,8 @@ export class ListeTestComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
   }
 
   constructor(
@@ -62,10 +56,9 @@ export class ListeTestComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-
-
   getTestToDisplay() {
     this.testService.getTests().subscribe((data: any) => {
+      console.log(data.docs);
       this.test = data.docs;
       this.centreService.getCentres().subscribe((data: any) => {
         this.centres = data.docs;
@@ -73,22 +66,25 @@ export class ListeTestComponent implements OnInit {
           this.personnes = data.docs;
           this.test.forEach((test) => {
             var personneTemp = this.personnes.find(
-              (pers) => pers.id_personne === test.personne_id
+              (pers) => pers._id === test.personne_id
             );
             var centreTemp = this.centres.find(
-              (centre) => centre.id_centre === test.centre_id
+              (centre) => centre._id === test.centre_id
             );
             this.testToDisplay.push({
-              id_test: test.id_test,
+              id_test: test._id,
               date_test: test.date_test,
               etat_test: test.etat_test,
               personne: personneTemp!,
               centre: centreTemp!,
+              _id: test._id,
             });
             this.dataSource = new MatTableDataSource<TestToDisplay>(
               this.testToDisplay
             );
           });
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         });
       });
     });

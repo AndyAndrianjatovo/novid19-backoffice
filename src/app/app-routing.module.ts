@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateCentreComponent } from './centre/create-centre/create-centre.component';
+import { ListeCentreComponent } from './centre/liste-centre/liste-centre.component';
 import { CreateLieuComponent } from './lieu/create-lieu/create-lieu.component';
 import { DetailLieuComponent } from './lieu/detail-lieu/detail-lieu.component';
 import { CreateComponent } from './personne/create/create.component';
@@ -39,6 +40,10 @@ const routes: Routes = [
     path: 'doctor',
     component: CreateCentreComponent,
   },
+  {
+    path: 'centre',
+    component: ListeCentreComponent,
+  }
 ];
 
 @NgModule({

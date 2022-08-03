@@ -1,144 +1,253 @@
-
-.navbar{
-    background-color: #FFD098;
-    color:  black;
-    font-family: 'Poppins', sans-serif;
-}
-.space {
-    flex: 1 1 auto;
-  }
-.conteuneur{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100vw;
-    height: 100vh;
-    // gap: 5%;
-}
-.cont{
-    width: 80%;
-    height: 100%;
-    margin: 0 auto;
-    margin-top: 1em;
-}
-.sidemenu{
-    width: 5%;
-    height: 100vh;
-    background-color: #ffffff;
-    border-right: 1px solid #F4F4F4;
-}
-.conteuneur-principal{
-    padding-top: 1%;
-    width: 95%;
-    height: 100vh;
-    background-color: #FCFCFC;
-}
-
-.sidemenu{
-    padding-top: 1%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5em;
-}
-
-#logoSpan{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: black;
-    display: block;
-}
-.menuDiv ul{
-    padding: 0;
-}
-.menuDiv ul li{
-    list-style: none;
-    margin-bottom: 1.5em;
-}
-
-.menuDiv ul li span{
-    width: 1.5em;
-    height: 1.5em;
-    display: block;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.menuDiv ul li span#personneAdd{
-    background-image: url('../assets/img/icon/user.png');
-}
-.menuDiv ul li span#personneAdd:hover{
-    background-image: url('../assets/img/icon/users-alt.png');
-}
-.menuDiv ul li span#testAdd{
-    background-image: url('../assets/img/icon/test.png');
-}
-.menuDiv ul li span#testAdd:hover{
-    background-image: url('../assets/img/icon/test-alt.png');
-}
-.menuDiv ul li span#vaccinAdd{
-    background-image: url('../assets/img/icon/vaccin.png');
-}
-.menuDiv ul li span#vaccinAdd:hover{
-    background-image: url('../assets/img/icon/syringe-alt.png');
-}
-.menuDiv ul li span#tdb{
-    background-image: url('../assets/img/icon/browser-mat.png');
-}
-.menuDiv ul li span#tdb:hover{
-    background-image: url('../assets/img/icon/browser.png');
-}
-.menuDiv ul li span#lieu{
-    background-image: url('../assets/img/icon/building-alt.png');
-}
-.menuDiv ul li span#lieu:hover{
-    background-image: url('../assets/img/icon/building.png');
-}
-.menuDiv ul li span#centre{
-    background-image: url('../assets/img/icon/doctor-alt.png');
-}
-.menuDiv ul li span#centre:hover{
-    background-image: url('../assets/img/icon/doctor.png');
-}
-.menuDiv ul li span.active#personneAdd{
-    background-image: url('../assets/img/icon/users-alt.png');
-}
-.menuDiv ul li span.active#testAdd{
-    background-image: url('../assets/img/icon/test-alt.png');
-}
-.menuDiv ul li span.active#vaccinAdd{
-    background-image: url('../assets/img/icon/syringe-alt.png');
-}
-.menuDiv ul li span.active#tdb{
-    background-image: url('../assets/img/icon/browser.png');
-}
-.menuDiv ul li span.active#lieu{
-    background-image: url('../assets/img/icon/building.png');
-}
-.menuDiv ul li span.active#centre{
-    background-image: url('../assets/img/icon/doctor.png');
-}
-.conteuneur-principal{
-    padding-top: 1%;
-}
-
-// .main{
-//     width: 100%;
-//     height: 100%;
+// .navbar{
+//     background-color: #FFD098;
+//     color:  black;
+//     font-family: 'Poppins', sans-serif;
+// }
+// .space {
+//     flex: 1 1 auto;
+//   }
+// .conteuneur{
 //     display: flex;
 //     flex-direction: row;
+//     align-items: center;
+//     justify-content: flex-start;
+//     width: 100vw;
+//     height: 100vh;
+//     // gap: 5%;
+// }
+// .cont{
+//     width: 80%;
+//     height: 100%;
+//     margin: 0 auto;
+//     margin-top: 1em;
+// }
+// .sidemenu{
+//     width: 5%;
+//     height: 100vh;
+//     background-color: #ffffff;
+//     border-right: 1px solid #F4F4F4;
+// }
+// .conteuneur-principal{
+//     padding-top: 1%;
+//     width: 95%;
+//     height: 100vh;
+//     background-color: #FCFCFC;
 // }
 
-// .linkPart{
-//     padding: 0;
-//     margin: 0;
+// .sidemenu{
+//     padding-top: 1%;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     gap: 5em;
 // }
 
 // #logoSpan{
-//     background: url("../assets/img/icon/novid.png");
+//     width: 40px;
+//     height: 40px;
+//     border-radius: 50%;
+//     background-color: black;
+//     display: block;
+// }
+// .menuDiv ul{
+//     padding: 0;
+// }
+// .menuDiv ul li{
+//     list-style: none;
+//     margin-bottom: 1.5em;
+// }
+
+// .menuDiv ul li span{
+//     width: 1.5em;
+//     height: 1.5em;
+//     display: block;
 //     background-size: cover;
 //     background-repeat: no-repeat;
-//     object-fit: scale-down;
 // }
+
+// .menuDiv ul li span#personneAdd{
+//     background-image: url('../assets/img/icon/user.png');
+// }
+// .menuDiv ul li span#personneAdd:hover{
+//     background-image: url('../assets/img/icon/users-alt.png');
+// }
+// .menuDiv ul li span#testAdd{
+//     background-image: url('../assets/img/icon/test.png');
+// }
+// .menuDiv ul li span#testAdd:hover{
+//     background-image: url('../assets/img/icon/test-alt.png');
+// }
+// .menuDiv ul li span#vaccinAdd{
+//     background-image: url('../assets/img/icon/vaccin.png');
+// }
+// .menuDiv ul li span#vaccinAdd:hover{
+//     background-image: url('../assets/img/icon/syringe-alt.png');
+// }
+// .menuDiv ul li span#tdb{
+//     background-image: url('../assets/img/icon/browser-mat.png');
+// }
+// .menuDiv ul li span#tdb:hover{
+//     background-image: url('../assets/img/icon/browser.png');
+// }
+// .menuDiv ul li span#lieu{
+//     background-image: url('../assets/img/icon/building-alt.png');
+// }
+// .menuDiv ul li span#lieu:hover{
+//     background-image: url('../assets/img/icon/building.png');
+// }
+// .menuDiv ul li span#centre{
+//     background-image: url('../assets/img/icon/doctor-alt.png');
+// }
+// .menuDiv ul li span#centre:hover{
+//     background-image: url('../assets/img/icon/doctor.png');
+// }
+// .menuDiv ul li span.active#personneAdd{
+//     background-image: url('../assets/img/icon/users-alt.png');
+// }
+// .menuDiv ul li span.active#testAdd{
+//     background-image: url('../assets/img/icon/test-alt.png');
+// }
+// .menuDiv ul li span.active#vaccinAdd{
+//     background-image: url('../assets/img/icon/syringe-alt.png');
+// }
+// .menuDiv ul li span.active#tdb{
+//     background-image: url('../assets/img/icon/browser.png');
+// }
+// .menuDiv ul li span.active#lieu{
+//     background-image: url('../assets/img/icon/building.png');
+// }
+// .menuDiv ul li span.active#centre{
+//     background-image: url('../assets/img/icon/doctor.png');
+// }
+// .conteuneur-principal{
+//     padding-top: 1%;
+// }
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.linkPart {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.sideNav {
+  width: 15%;
+  height: 100vh;
+  padding: 1em;
+  border-right: 1px solid #dddddd;
+}
+
+.logoPart,
+.logoDiv,
+#logoSpan,
+#logoSpan img {
+  width: 100%;
+}
+
+#logoSpan img {
+  height: 50px;
+  object-fit: cover;
+}
+
+.linkPart li a {
+  text-decoration: none;
+  color: #707585;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.link,
+.link .leftLink {
+  display: flex;
+}
+
+.link {
+  justify-content: space-between;
+  // padding: 0 1em;
+}
+
+.link .leftLink .icon {
+  align-items: center;
+  margin-right: 0.5em;
+}
+
+.link .icon {
+  width: 1.5em;
+  height: 1.5em;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: invert(47%) sepia(8%) saturate(676%) hue-rotate(188deg)
+    brightness(94%) contrast(86%);
+}
+
+.logoPart {
+  margin-bottom: 1em;
+}
+
+.linkPart li {
+  // margin-top: 2em;
+}
+
+.leftLink {
+  align-items: flex-end;
+}
+
+.content {
+  padding: 1.5em;
+  font-family: "Poppins", sans-serif;
+  width: 80%;
+}
+
+.content h1 {
+  font-family: "Poppins", sans-serif;
+
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+:host ::ng-deep {
+  .mat-expansion-panel:not([class*="mat-elevation-z"]) {
+    box-shadow: none;
+  }
+  .mat-expansion-panel-header-title {
+    color: #707585;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+.linkPanel {
+  list-style: none;
+  margin-left: 10px;
+  border-left: #707585 solid 0.1em;
+  padding: 0 1em;
+}
+
+.linkPanel a span {
+  // margin-bottom: 1em;
+  height: 35px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding-left: 0.8em;
+}
+.linkPanel li a span:hover {
+  background-color: rgba(90, 255, 122, 0.2);
+  color: #05664f;
+}
+
+.linkPanel li .active span {
+  background-color: rgba(90, 255, 122, 0.2);
+  color: #05664f;
+}
