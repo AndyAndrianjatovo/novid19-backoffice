@@ -5,8 +5,8 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { Personne, PersonneToInsert } from 'src/app/model/personne';
-import { PersonneServiceService } from 'src/app/service/personne-service.service';
+import { Personne, PersonneToInsert } from 'src/app/models/personne';
+import { PersonneServiceService } from 'src/app/services/personne-service.service';
 
 @Component({
   selector: 'app-create',
@@ -24,7 +24,8 @@ export class CreateComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.personne = {
-      id_personne: -1,
+      id_personne: '',
+_id: '',
       nom: '',
       prenom: '',
       date_naissance: new Date(),
@@ -57,7 +58,8 @@ export class CreateComponent implements OnInit, OnChanges {
       .subscribe((data) => {
         console.log(data);
         this.personne = {
-          id_personne: -1,
+          id_personne: '',
+_id: '',
           nom: '',
           prenom: '',
           date_naissance: new Date(),

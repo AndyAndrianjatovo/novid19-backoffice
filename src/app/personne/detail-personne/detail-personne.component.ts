@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Personne } from 'src/app/model/personne';
-import { PersonneServiceService } from 'src/app/service/personne-service.service';
+import { Personne } from 'src/app/models/personne';
+import { PersonneServiceService } from 'src/app/services/personne-service.service';
 
 @Component({
   selector: 'app-detail-personne',
@@ -17,9 +17,10 @@ export class DetailPersonneComponent implements OnInit {
   }
 
   showPersonne() {
-    this.personneService.getPersonne(1).subscribe(
+    this.personneService.getPersonne("62e979e5a3d0a94b24cb73d9").subscribe(
       (data: Personne) =>
         (this.personne = {
+          _id: data._id,
           id_personne: data.id_personne,
           nom: data.nom,
           prenom: data.prenom,

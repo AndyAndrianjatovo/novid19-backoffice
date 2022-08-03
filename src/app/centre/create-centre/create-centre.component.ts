@@ -11,8 +11,8 @@ import {
 } from '@angular/core';
 import * as maplibregl from 'maplibre-gl';
 import { Map, NavigationControl } from 'maplibre-gl';
-import { Centre, CentreToInsert } from 'src/app/model/centre';
-import { CentreService } from 'src/app/service/centre.service';
+import { Centre, CentreToInsert } from 'src/app/models/centre';
+import { CentreService } from 'src/app/services/centre.service';
 
 @Component({
   selector: 'app-create-centre',
@@ -23,8 +23,9 @@ export class CreateCentreComponent
   implements OnInit, OnChanges, AfterViewInit, OnDestroy
 {
   centre: Centre = {
+    _id:'',
     nom_centre: '',
-    id_centre: -1,
+    id_centre: '',
     adresse_centre: '',
     coordonnees_centre: '',
   };
@@ -99,8 +100,9 @@ export class CreateCentreComponent
     };
     this.centreService.addCentre(this.centreToInsert).subscribe((data) => {
       this.centre = {
+        _id:'',
         nom_centre: '',
-        id_centre: -1,
+        id_centre: '',
         adresse_centre: '',
         coordonnees_centre: '',
       };

@@ -15,7 +15,7 @@
           id="nom"
           name="nom"
           [(ngModel)]="centre.nom_centre"
-          [disabled]="centre.id_centre !== -1"
+          [disabled]="centre.id_centre !== ''"
         />
       </div>
       <div class="formItem">
@@ -24,7 +24,7 @@
           type="text"
           id="adresse_centre"
           name="adresse_centre"
-          [disabled]="centre.id_centre !== -1"
+          [disabled]="centre.id_centre !== ''"
           [(ngModel)]="centre.adresse_centre"
         />
       </div>
@@ -35,7 +35,7 @@
         type="text"
         id="coordonnees_centre"
         name="coordonnees_centre"
-        [disabled]="centre.id_centre !== -1"
+        [disabled]="centre.id_centre !== ''"
         [(ngModel)]="centre.coordonnees_centre"
         readonly
       />

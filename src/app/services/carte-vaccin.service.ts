@@ -5,7 +5,7 @@ import { apiUrlGrails } from 'src/environments/environment';
 import {
   CarteVaccination,
   CarteVaccinationToInsert,
-} from '../model/carte-vaccination';
+} from '../models/carte-vaccination';
 
 @Injectable({
   providedIn: 'root',
@@ -19,16 +19,38 @@ export class CarteVaccinService {
     return this.http.get<CarteVaccination[]>(this.configUrl + 'cartev');
   }
 
-  getCarte(id: number) {
+  getCarte(id: String) {
     return this.http.get<CarteVaccination>(this.configUrl + 'cartev/' + id);
   }
 
-  addCarte(personne: CarteVaccinationToInsert): Observable<any> {
+  addCarte(carte: CarteVaccinationToInsert): Observable<any> {
     const headers = { 'content-type': 'application/json' };
-    const body = JSON.stringify(personne);
+    const body = JSON.stringify(carte);
     console.log(body);
     return this.http.post(this.configUrl + 'cartev', body, {
       headers: headers,
     });
   }
 }
+// export const FAKE_CARTES: CarteVaccination[] = [
+//   {
+//     id_carte: 1,
+//     personne_id: 5,
+//   },
+//   {
+//     id_carte: 2,
+//     personne_id: 10,
+//   },
+//   {
+//     id_carte: 3,
+//     personne_id: 7,
+//   },
+//   {
+//     id_carte: 4,
+//     personne_id: 1,
+//   },
+//   {
+//     id_carte: 5,
+//     personne_id: 3,
+//   },
+// ];

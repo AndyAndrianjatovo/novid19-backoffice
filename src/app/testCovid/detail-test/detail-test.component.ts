@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TestToDisplay } from 'src/app/model/test';
-import { TestCovidService } from 'src/app/service/test-covid.service';
+import { TestToDisplay } from 'src/app/models/test';
+import { TestCovidService } from 'src/app/services/test-covid.service';
 import * as jspdf from 'jspdf';
 import html2canvas from 'html2canvas';
 

@@ -1,16 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Centre } from 'src/app/model/centre';
-import { Personne } from 'src/app/model/personne';
-import { Test, TestToDisplay } from 'src/app/model/test';
-import { CentreService, FAKE_CENTRE } from 'src/app/service/centre.service';
+import { Centre } from 'src/app/models/centre';
+import { Personne } from 'src/app/models/personne';
+import { Test, TestToDisplay } from 'src/app/models/test';
+import { CentreService } from 'src/app/services/centre.service';
 import {
-  FAKE_PERSONNES,
+  
   PersonneServiceService,
-} from 'src/app/service/personne-service.service';
+} from 'src/app/services/personne-service.service';
 import {
-  FAKE_TESTS,
+  
   TestCovidService,
-} from 'src/app/service/test-covid.service';
+} from 'src/app/services/test-covid.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -54,8 +54,7 @@ export class ListeTestComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.getTestToDisplay();
-    this.getTestToDisplayFake();
+    this.getTestToDisplay();
   }
 
   applyFilter(event: Event) {
@@ -63,37 +62,15 @@ export class ListeTestComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  getTestToDisplayFake() {
-    this.test = FAKE_TESTS;
-    this.centres = FAKE_CENTRE;
-    this.personnes = FAKE_PERSONNES;
-    this.test.forEach((test) => {
-      var personneTemp = this.personnes.find(
-        (pers) => pers.id_personne === test.personne_id
-      );
-      var centreTemp = this.centres.find(
-        (centre) => centre.id_centre === test.centre_id
-      );
-      this.testToDisplay.push({
-        id_test: test.id_test,
-        date_test: test.date_test,
-        etat_test: test.etat_test,
-        personne: personneTemp!,
-        centre: centreTemp!,
-      });
-      this.dataSource = new MatTableDataSource<TestToDisplay>(
-        this.testToDisplay
-      );
-    });
-  }
+
 
   getTestToDisplay() {
-    this.testService.getTests().subscribe((data: Test[]) => {
-      this.test = data;
-      this.centreService.getCentres().subscribe((data: Centre[]) => {
-        this.centres = data;
-        this.personneService.getPersonnes().subscribe((data: Personne[]) => {
-          this.personnes = data;
+    this.testService.getTests().subscribe((data: any) => {
+      this.test = data.docs;
+      this.centreService.getCentres().subscribe((data: any) => {
+        this.centres = data.docs;
+        this.personneService.getPersonnes().subscribe((data: any) => {
+          this.personnes = data.docs;
           this.test.forEach((test) => {
             var personneTemp = this.personnes.find(
               (pers) => pers.id_personne === test.personne_id

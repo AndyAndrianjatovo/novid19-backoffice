@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as maplibregl from 'maplibre-gl';
 import { Map, NavigationControl } from 'maplibre-gl';
-import { Lieu, LieuToInsert } from 'src/app/model/lieu';
-import { LieuService } from 'src/app/service/lieu.service';
+import { Lieu, LieuToInsert } from 'src/app/models/lieux';
+import { LieuxService } from 'src/app/services/lieux.service';
 
 @Component({
   selector: 'app-create-lieu',
@@ -15,7 +15,7 @@ export class CreateLieuComponent implements OnInit {
   private mapContainer!: ElementRef<HTMLElement>;
 
   lieu: Lieu = {
-    _id: -1,
+    _id: '',
     nom_lieu: '',
     adresse_lieu: '',
     statut_lieu: -1,
@@ -24,7 +24,7 @@ export class CreateLieuComponent implements OnInit {
 
   lieuToInsert: LieuToInsert | undefined;
 
-  constructor(private lieuService: LieuService) {}
+  constructor(private lieuService: LieuxService) {}
 
   ngOnInit(): void {}
 
@@ -83,7 +83,7 @@ export class CreateLieuComponent implements OnInit {
     };
     this.lieuService.addLieu(this.lieuToInsert).subscribe((data) => {
       this.lieu = {
-        _id: -1,
+        _id: '',
         nom_lieu: '',
         adresse_lieu: '',
         statut_lieu: -1,

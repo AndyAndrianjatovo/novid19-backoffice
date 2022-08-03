@@ -6,8 +6,11 @@ export const environment = {
   production: false,
 };
 
-export const apiUrlGrails = 'http://localhost:8080/api/';
-export const apiUrlNode = 'http://localhost:3000/api/';
+// export const apiUrlGrails = 'http://localhost:8080/api/';
+// export const apiUrlNode = 'http://localhost:3000/api/';
+
+export const apiUrlGrails = 'https://calm-mesa-49918.herokuapp.com/api/';
+export const apiUrlNode = 'https://calm-mesa-49918.herokuapp.com/api/';  
 
 /*
  * For easier debugging in development mode, you can import the following file

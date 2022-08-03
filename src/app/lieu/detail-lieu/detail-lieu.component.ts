@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Lieu } from 'src/app/model/lieu';
-import { LieuService } from 'src/app/service/lieu.service';
+import { Lieu } from 'src/app/models/lieux';
+import { LieuxService } from 'src/app/services/lieux.service';
 
 @Component({
   selector: 'app-detail-lieu',
@@ -10,7 +10,7 @@ import { LieuService } from 'src/app/service/lieu.service';
 export class DetailLieuComponent implements OnInit {
   lieux: Lieu[] | undefined;
 
-  constructor(private lieuService: LieuService) {}
+  constructor(private lieuService: LieuxService) {}
 
   ngOnInit(): void {
     this.getLieux();

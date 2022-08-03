@@ -15,7 +15,7 @@
           id="nom"
           name="nom"
           [(ngModel)]="lieu.nom_lieu"
-          [disabled]="lieu._id !== -1"
+          [disabled]="lieu._id !== ''"
         />
       </div>
       <div class="formItem">
@@ -24,7 +24,7 @@
           type="text"
           id="adresse_lieu"
           name="adresse_lieu"
-          [disabled]="lieu._id !== -1"
+          [disabled]="lieu._id !== ''"
           [(ngModel)]="lieu.adresse_lieu"
         />
       </div>
@@ -35,7 +35,7 @@
         type="text"
         id="coordonnees_lieu"
         name="coordonnees_lieu"
-        [disabled]="lieu._id !== -1"
+        [disabled]="lieu._id !== ''"
         [(ngModel)]="lieu.coordonnees_lieu"
       />
     </div>

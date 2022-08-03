@@ -1,5 +1,6 @@
 export interface Personne {
-  id_personne: number;
+  _id:String;
+  id_personne: String;
   nom: string;
   prenom: string;
   mail: string;
