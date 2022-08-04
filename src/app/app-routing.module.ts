@@ -4,6 +4,7 @@ import { CreateCentreComponent } from './centre/create-centre/create-centre.comp
 import { ListeCentreComponent } from './centre/liste-centre/liste-centre.component';
 import { CreateLieuComponent } from './lieu/create-lieu/create-lieu.component';
 import { DetailLieuComponent } from './lieu/detail-lieu/detail-lieu.component';
+import { ListeLieuComponent } from './lieu/liste-lieu/liste-lieu.component';
 import { CreateComponent } from './personne/create/create.component';
 import { DetailPersonneComponent } from './personne/detail-personne/detail-personne.component';
 import { TdbComponent } from './tdb/tdb.component';
@@ -14,7 +15,7 @@ import { CreateVaccinComponent } from './vaccins/create-vaccin/create-vaccin.com
 const routes: Routes = [
   { path: '', redirectTo: 'tdb', pathMatch: 'full' },
   { path: 'det', component: DetailPersonneComponent },
-  { path: 'detLieux', component: DetailLieuComponent },
+  { path: 'lieux/details/:id', component: DetailLieuComponent },
   { path: 'listeTest', component: ListeTestComponent },
   {
     path: 'person',
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path: 'centre',
     component: ListeCentreComponent,
+  },
+  {
+    path: 'places',
+    component: ListeLieuComponent,
   }
 ];
 

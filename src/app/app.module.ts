@@ -33,6 +33,7 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ListeCentreComponent } from './centre/liste-centre/liste-centre.component';
+import { ListeLieuComponent } from './lieu/liste-lieu/liste-lieu.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { ListeCentreComponent } from './centre/liste-centre/liste-centre.compone
     DetailTestComponent,
     ListeTestComponent,
     ListeCentreComponent,
+    ListeLieuComponent,
   ],
   imports: [
     BrowserModule,

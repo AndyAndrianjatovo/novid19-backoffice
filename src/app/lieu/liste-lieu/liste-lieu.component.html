@@ -1,0 +1,48 @@
+<!-- <table>
+    <thead>
+        <tr>
+        <th>_id</th>
+        <th>nom_lieu</th>
+        <th>adresse_lieu</th>
+        <th>statut_lieu</th>
+        <th>Pays</th>
+        <th>coordonnees_lieu</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let lieu of lieux">
+        <td>{{ lieu._id }}</td>
+        <td>{{ lieu.nom_lieu }}</td>
+        <td>{{ lieu.adresse_lieu }}</td>
+        <td>{{ lieu.statut_lieu }}</td>
+        <td>{{ lieu.coordonnees_lieu }}</td>
+        <td>
+            <button (click)="details(lieu._id)">Details</button>
+        </td>
+        </tr>
+    </tbody>
+</table> -->
+<ol class="articles">
+  <li
+    class="articles__article"
+    style="--animation-order: 1"
+    *ngFor="let lieu of lieux"
+  >
+    <a class="articles__link" (click)="details(lieu._id)">
+      <div class="articles__content articles__content--lhs">
+        <h2 class="articles__title">{{ lieu.nom_lieu }}</h2>
+        <div class="articles__footer">
+          <p>{{ lieu.adresse_lieu }}</p>
+          <!-- <time>1 Jan 2020</time> -->
+        </div>
+      </div>
+      <div class="articles__content articles__content--rhs" aria-hidden="true">
+        <h2 class="articles__title">{{ lieu.nom_lieu }}</h2>
+        <div class="articles__footer">
+          <p>{{ lieu.adresse_lieu }}</p>
+          <!-- <time>1 Jan 2020</time> -->
+        </div>
+      </div></a
+    >
+  </li>
+</ol>

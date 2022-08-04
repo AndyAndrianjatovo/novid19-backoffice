@@ -19,6 +19,10 @@ export class HistoriqueService {
     return this.http.get<Historique>(this.configUrl + 'historique/' + id);
   }
 
+  getHistoriqueByLieux(id:String){
+    return this.http.get<Historique[]>(this.configUrl + 'historiqueLieux/' + id);
+  }
+
   checkIfMayBe(historique: Historique, dateTest: Date) {
     var dateHistorique = historique.date_passage;
     var dateHistoriquePossible = new Date(

@@ -1,6 +1,13 @@
-<div *ngFor="let a of lieux">
-  {{ a.nom_lieu }}
-  {{ a.adresse_lieu }}
-  {{ a.coordonnees_lieu }}
+<h1>
+  {{ lieux!.nom_lieu }}
+  {{ lieux!.adresse_lieu }}
+  {{ lieux!.coordonnees_lieu }}
+</h1>
+<div *ngFor="let item of histoToDisp" >
+  {{
+    item.date_passage | date: 'dd/MM/yyyy'
+  }}
+  {{
+    item.personne.nom
+  }}
 </div>
-Lieux :{{ lieux?.length }}
