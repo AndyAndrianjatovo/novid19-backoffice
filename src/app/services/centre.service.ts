@@ -27,6 +27,14 @@ export class CentreService {
       headers: headers,
     });
   }
+  updateCentre(lieu: CentreToInsert): Observable<any> {
+    const headers = { 'content-type': 'application/json' };
+    const body = JSON.stringify(lieu);
+    console.log(body);
+    return this.http.put(this.configUrl + 'centre', body, {
+      headers: headers,
+    });
+  }
 }
 
 // export const FAKE_CENTRE: Centre[] = [

@@ -1,0 +1,46 @@
+<div class="conteuneurFormulaire">
+  <div class="title">
+    <h1>Mis à jour centre</h1>
+    <div class="formButton" (click)="updateCentre()">
+      <button type="submit"><span id="addPerson"></span> Ajouter</button>
+    </div>
+  </div>
+  <div class="formulaire">
+    <!-- <mat-card> -->
+    <div class="formGroupItem">
+      <div class="formItem">
+        <label for="nom">Nom centre</label>
+        <input
+          type="text"
+          id="nom"
+          name="nom"
+          [(ngModel)]="centre.nom_centre"
+        />
+      </div>
+      <div class="formItem">
+        <label for="adresse_centre">Adresse centre</label>
+        <input
+          type="text"
+          id="adresse_centre"
+          name="adresse_centre"
+          [(ngModel)]="centre.adresse_centre"
+        />
+      </div>
+    </div>
+    <div class="formItem">
+      <label for="coordonnees_centre">Coordonnées centre</label>
+      <input
+        type="text"
+        id="coordonnees_centre"
+        name="coordonnees_centre"
+        [disabled]="centre.id_centre !== ''"
+        [(ngModel)]="centre.coordonnees_centre"
+        readonly
+      />
+    </div>
+    <!-- </mat-card> -->
+  </div>
+</div>
+
+<div class="map-container" #map></div>
+<pre id="coordinates" class="coordinates"></pre>

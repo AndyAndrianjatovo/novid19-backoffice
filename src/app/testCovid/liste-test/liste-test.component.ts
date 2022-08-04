@@ -23,12 +23,12 @@ export class ListeTestComponent implements OnInit {
   testToDisplay: TestToDisplay[] = [];
   displayedColumns: string[] = [
     'personne',
-    'date_test',
-    'etat_test',
-    'centre',
     'mail',
     'adresse',
     'sexe',
+    'etat_test',
+    'centre',
+    'date_test',
   ];
   dataSource: any;
 

@@ -34,6 +34,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ListeCentreComponent } from './centre/liste-centre/liste-centre.component';
 import { ListeLieuComponent } from './lieu/liste-lieu/liste-lieu.component';
+import { UpdateLieuComponent } from './lieu/update-lieu/update-lieu.component';
+import { UpdateCentreComponent } from './centre/update-centre/update-centre.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { ListeLieuComponent } from './lieu/liste-lieu/liste-lieu.component';
     ListeTestComponent,
     ListeCentreComponent,
     ListeLieuComponent,
+    UpdateLieuComponent,
+    UpdateCentreComponent,
   ],
   imports: [
     BrowserModule,

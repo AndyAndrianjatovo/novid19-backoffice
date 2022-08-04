@@ -28,6 +28,15 @@ export class LieuxService {
       headers: headers,
     });
   }
+
+  updateLieu(lieu: LieuToInsert): Observable<any> {
+    const headers = { 'content-type': 'application/json' };
+    const body = JSON.stringify(lieu);
+    console.log(body);
+    return this.http.put(this.configUrl + 'lieu', body, {
+      headers: headers,
+    });
+  }
 }
 
 // export const ELEMENT_DATA: Lieu[] = [

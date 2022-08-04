@@ -17,30 +17,43 @@ export class DetailLieuComponent implements OnInit {
   historiques: Historique[] = [];
   histoToDisp: HistoriqueToDisplay[] = [];
 
-  constructor(private lieuService: LieuxService,private activatedRoute: ActivatedRoute,private router: Router,private historiqueService: HistoriqueService, private personneService: PersonneServiceService) {}
+  constructor(
+    private lieuService: LieuxService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private historiqueService: HistoriqueService,
+    private personneService: PersonneServiceService
+  ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
+    this.activatedRoute.params.subscribe((params) => {
       let id = params['id'];
       this.lieuService.getLieu(id).subscribe((data: any) => {
         this.lieux = data;
         console.log(data);
-        this.historiqueService.getHistoriqueByLieux(this.lieux!._id).subscribe((data: any) => {
-          this.historiques = data;
-          this.historiques.forEach(element => {
-            this.personneService.getPersonne(element.personne_id).subscribe((data: Personne) => {
-              var histo: HistoriqueToDisplay = {
-                personne: data,
-                _id: element._id,
-                date_passage: element.date_passage,
-                lieu_id: element.lieu_id,
-              } 
-              this.histoToDisp.push(histo);
+        this.historiqueService
+          .getHistoriqueByLieux(this.lieux!._id)
+          .subscribe((data: any) => {
+            this.historiques = data;
+            this.historiques.forEach((element) => {
+              this.personneService
+                .getPersonne(element.personne_id)
+                .subscribe((data: Personne) => {
+                  var histo: HistoriqueToDisplay = {
+                    personne: data,
+                    _id: element._id,
+                    date_passage: element.date_passage,
+                    lieu_id: element.lieu_id,
+                  };
+                  this.histoToDisp.push(histo);
+                });
             });
+            console.log(data);
           });
-          console.log(data);
-        });
       });
     });
+  }
+  update(lieu_id: String) {
+    this.router.navigate(['lieux/details/update', lieu_id]);
   }
 }

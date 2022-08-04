@@ -1,8 +1,55 @@
-table{
-    width: 100%;
+table {
+  width: 100%;
+  color: #b1b1b4;
+  font-size: 0.9em;
 }
 
 .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
+  font-size: 14px;
+  width: 100%;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.title h1 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #040608;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+.title span {
+  color: #5d5f66;
+}
+
+// .boutons {
+//   width: 5px;
+//   height: 5px;
+//   background-color: #040608;
+//   border-radius: 50%;
+//   display: inline-block;
+// }
+
+.Positif {
+  color: green;
+}
+
+.Negatif {
+  color: red;
+}
+.details {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.icoDetails {
+  width: 20px;
+  height: 20px;
+  filter: invert(42%) sepia(0%) saturate(7040%) hue-rotate(280deg)
+    brightness(99%) contrast(92%);
+  margin-right: 0.5em;
+}

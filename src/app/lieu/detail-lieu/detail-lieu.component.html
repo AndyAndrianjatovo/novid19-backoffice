@@ -1,13 +1,80 @@
-<h1>
+<!-- <h1>
   {{ lieux!.nom_lieu }}
   {{ lieux!.adresse_lieu }}
   {{ lieux!.coordonnees_lieu }}
 </h1>
-<div *ngFor="let item of histoToDisp" >
-  {{
-    item.date_passage | date: 'dd/MM/yyyy'
-  }}
-  {{
-    item.personne.nom
-  }}
+<div *ngFor="let item of histoToDisp">
+  {{ item.date_passage | date: "dd/MM/yyyy" }}
+  {{ item.personne.nom }}
+</div>
+<button (click)="update(lieux!._id)">Update</button>
+ -->
+<div class="navigation">
+  <span>
+    <a routerLink="/places"> Lieux </a>
+  </span>
+  <img src="assets/img/icon/chevron-forward-outline.svg" alt="" />
+  <span class="nomL">{{ lieux!.nom_lieu }}</span>
+</div>
+<div class="container">
+  <div class="detailLieuPart">
+    <div class="actionPart">
+      <button (click)="update(lieux!._id)">
+        <img
+          src="assets/img/icon/create-outline.svg"
+          alt=""
+          class="icoAction"
+        />
+      </button>
+    </div>
+    <div class="titre">
+      {{ lieux!.nom_lieu }}
+    </div>
+    <div class="adresse">
+      {{ lieux!.adresse_lieu }}
+    </div>
+    <div class="detailsPart">
+      <img src="assets/img/icon/eye-outline.svg" alt="" class="icoDetails" />
+      <span> {{ histoToDisp.length }} passages </span>
+
+      <img
+        src="assets/img/icon/navigate-outline.svg"
+        alt=""
+        class="icoDetails"
+      />
+      <span> {{ lieux!.coordonnees_lieu }} </span>
+    </div>
+    <hr />
+    <div class="titre">QR Code</div>
+    <div class="qrcode">
+      <ngx-qrcode
+        value="{{ lieux!._id }}"
+        cssClass="qrcodeshadow"
+        [width]="500"
+        [margin]="0"
+      ></ngx-qrcode>
+    </div>
+
+    <div class="chart"></div>
+  </div>
+
+  <div class="historiqueListe">
+    <!-- <div *ngFor="let item of histoToDisp">
+      {{ item.date_passage | date: "dd/MM/yyyy" }}
+      {{ item.personne.nom }}
+    </div> -->
+    <table>
+      <tr class="titreTab">
+        <th colspan="2">Historique des passages</th>
+      </tr>
+      <tr class="head">
+        <th>Date de passage</th>
+        <th>Nom & prénoms</th>
+      </tr>
+      <tr *ngFor="let item of histoToDisp">
+        <td>{{ item.date_passage | date: "dd/MM/yyyy" }}</td>
+        <td>{{ item.personne.nom }} {{ item.personne.prenom }}</td>
+      </tr>
+    </table>
+  </div>
 </div>

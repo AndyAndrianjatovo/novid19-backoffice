@@ -1,0 +1,48 @@
+<div class="conteuneurFormulaire">
+  <div class="title">
+    <h1>Mettre à jour le lieu</h1>
+    <div class="formButton" (click)="updateLieu()">
+      <button type="submit"><span id="addPerson"></span> Mettre à jour</button>
+    </div>
+  </div>
+  <div class="formulaire">
+    <!-- <mat-card> -->
+    <div class="formGroupItem">
+      <div class="formItem">
+        <label for="nom">Nom lieu</label>
+        <input type="text" id="nom" name="nom" [(ngModel)]="lieu.nom_lieu" />
+      </div>
+      <div class="formItem">
+        <label for="adresse_lieu">Adresse lieu</label>
+        <input
+          type="text"
+          id="adresse_lieu"
+          name="adresse_lieu"
+          [(ngModel)]="lieu.adresse_lieu"
+        />
+      </div>
+      <div class="formItem">
+        <label for="etat">Etat lieu</label>
+        <select name="etat" id="etat" [(ngModel)]="lieu.statut_lieu">
+          <option value="1">Sain</option>
+          <option value="2">Infecté</option>
+          <option value="-1">Inconu</option>
+        </select>
+      </div>
+    </div>
+    <div class="formItem">
+      <label for="coordonnees_lieu">Coordonnées du lieu</label>
+      <input
+        type="text"
+        id="coordonnees_lieu"
+        name="coordonnees_lieu"
+        [disabled]="lieu._id !== ''"
+        [(ngModel)]="lieu.coordonnees_lieu"
+      />
+    </div>
+    <!-- </mat-card> -->
+  </div>
+</div>
+
+<div class="map-container" #map></div>
+<pre id="coordinates" class="coordinates"></pre>
