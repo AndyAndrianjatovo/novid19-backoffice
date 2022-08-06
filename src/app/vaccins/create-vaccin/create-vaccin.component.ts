@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import {
   CarteVaccination,
   CarteVaccinationToInsert,
@@ -106,8 +107,10 @@ export class CreateVaccinComponent implements OnInit {
     private personneService: PersonneServiceService,
     private carteService: CarteVaccinService,
     private vaccinService: VaccinService,
-    private centreService: CentreService
-  ) { }
+    private centreService: CentreService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getPersonnes();
@@ -128,12 +131,12 @@ export class CreateVaccinComponent implements OnInit {
       this.personneService
         .addPersonne(this.personneToInsert)
         .subscribe((data) => {
-          this.personneSelected = data.docs;
+          this.personneSelected = data;
           this.carteToInsert = {
             personne_id: this.personneSelected._id,
           };
           this.carteService.addCarte(this.carteToInsert).subscribe((data) => {
-            this.vaccin.carte_id = data.docs._id;
+            this.vaccin.carte_id = data._id;
             this.vaccinToInsert = {
               nom_vaccin: this.vaccin.nom_vaccin,
               date_vaccin: this.vaccin.date_vaccin,
@@ -171,13 +174,15 @@ export class CreateVaccinComponent implements OnInit {
                   carte_id: '',
                   centre_id: '',
                 };
+
+                this.router.navigate(['/tdb']);
               });
           });
         });
     } else {
       this.carteService.getCartes().subscribe((data: any) => {
         var dataFiltre = data.docs.filter(
-          (x:CarteVaccination) => x.personne_id === this.personneSelected._id
+          (x: CarteVaccination) => x.personne_id === this.personneSelected._id
         );
         if (dataFiltre.length > 0) {
           this.vaccinToInsert = {
@@ -217,13 +222,14 @@ export class CreateVaccinComponent implements OnInit {
                 carte_id: '',
                 centre_id: '',
               };
+              this.router.navigate(['/tdb']);
             });
         } else {
           this.carteToInsert = {
             personne_id: this.personneSelected._id,
           };
           this.carteService.addCarte(this.carteToInsert).subscribe((data) => {
-            this.vaccin.carte_id = data.docs._id;
+            this.vaccin.carte_id = data._id;
             this.vaccinToInsert = {
               nom_vaccin: this.vaccin.nom_vaccin,
               date_vaccin: this.vaccin.date_vaccin,
@@ -261,6 +267,7 @@ export class CreateVaccinComponent implements OnInit {
                   carte_id: '',
                   centre_id: '',
                 };
+                this.router.navigate(['/tdb']);
               });
           });
         }
@@ -269,12 +276,12 @@ export class CreateVaccinComponent implements OnInit {
   }
 
   getPersonnes() {
-    this.personneService.getPersonnes().subscribe((data:any) => {
+    this.personneService.getPersonnes().subscribe((data: any) => {
       this.personnes = data.docs;
     });
   }
   getCentres() {
-    this.centreService.getCentres().subscribe((data:any) => {
+    this.centreService.getCentres().subscribe((data: any) => {
       this.centres = data.docs;
     });
   }

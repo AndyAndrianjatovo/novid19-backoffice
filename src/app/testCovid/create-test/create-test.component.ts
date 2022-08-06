@@ -1,5 +1,6 @@
 import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Centre } from 'src/app/models/centre';
 import { Personne, PersonneToInsert } from 'src/app/models/personne';
 import { Test, TestToInsert } from 'src/app/models/test';
@@ -49,8 +50,10 @@ export class CreateTestComponent implements OnInit {
   constructor(
     private personneService: PersonneServiceService,
     private centreService: CentreService,
-    private testService: TestCovidService
-  ) { }
+    private testService: TestCovidService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   selectEvent(item: any) {
     this.personneSelected = item;
@@ -122,12 +125,12 @@ export class CreateTestComponent implements OnInit {
   }
 
   getPersonnes() {
-    this.personneService.getPersonnes().subscribe((data:any) => {
+    this.personneService.getPersonnes().subscribe((data: any) => {
       this.personnes = data.docs;
     });
   }
   getCentres() {
-    this.centreService.getCentres().subscribe((data:any) => {
+    this.centreService.getCentres().subscribe((data: any) => {
       this.centres = data.docs;
     });
   }
@@ -183,6 +186,7 @@ export class CreateTestComponent implements OnInit {
               adresse_centre: '',
               coordonnees_centre: '',
             };
+            this.router.navigate(['/listeTest']);
           });
         });
     } else {
@@ -223,6 +227,7 @@ export class CreateTestComponent implements OnInit {
           adresse_centre: '',
           coordonnees_centre: '',
         };
+        this.router.navigate(['/listeTest']);
       });
     }
   }
